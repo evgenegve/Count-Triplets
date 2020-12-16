@@ -47,7 +47,6 @@ class Solution
 
     static void Main(string[] args)
     {
-
         TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
         string[] nr = Console.ReadLine().TrimEnd().Split(' ');
@@ -64,6 +63,5 @@ class Solution
 
         textWriter.Flush();
         textWriter.Close();
-
     }
 }
