@@ -18,27 +18,27 @@ class Solution
     // Complete the countTriplets function below.
     static long countTriplets(List<long> arr, long r)
     {
-        var DictC = new Dictionary<long, long>();
-        var DictB = new Dictionary<long, long>();
+        var dictC = new Dictionary<long, long>();
+        var dictB = new Dictionary<long, long>();
 
         long triplets = 0;
 
         for (int i = arr.Count - 1; i >= 0; i--)
         {
-            if (DictB.ContainsKey(arr[i] * r))
-                triplets += DictB[arr[i] * r];
+            if (dictB.ContainsKey(arr[i] * r))
+                triplets += dictB[arr[i] * r];
 
-            if (DictC.ContainsKey(arr[i]*r))
+            if (dictC.ContainsKey(arr[i]*r))
             {
-                if (DictB.ContainsKey(arr[i]))
-                    DictB[arr[i]] += DictC[arr[i] * r];
+                if (dictB.ContainsKey(arr[i]))
+                    dictB[arr[i]] += dictC[arr[i] * r];
                 else
-                    DictB.Add(arr[i], DictC[arr[i] * r]);
+                    dictB.Add(arr[i], dictC[arr[i] * r]);
             }
-            if (DictC.ContainsKey(arr[i]))
-                DictC[arr[i]]++;
+            if (dictC.ContainsKey(arr[i]))
+                dictC[arr[i]]++;
             else
-                DictC.Add(arr[i], 1);
+                dictC.Add(arr[i], 1);
         }
 
         return triplets;
